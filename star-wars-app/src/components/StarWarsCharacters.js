@@ -1,37 +1,38 @@
-import React, { useState, useEffect } from "react";
-import Loader from "react-loader-spinner";
+import React, { useState, useEffect } from "react"
+import Loader from "react-loader-spinner"
 
-import { getData } from "../api";
-import "./star-wars-characters.css";
+import { getData } from "../api/getData"
+import "./star-wars-characters.css"
 
 export default function StarWarsCharacters() {
-  const [url, setUrl] = useState("https://swapi.co/api/people");
-  const [previous, setPrevious] = useState();
-  const [next, setNext] = useState();
-  const [isLoading, setIsLoading] = useState(false);
-  const [characters, setCharacters] = useState([]);
+  const [url, setUrl] = useState("https://swapi.co/api/people")
+  const [previous, setPrevious] = useState()
+  const [next, setNext] = useState()
+  const [isLoading, setIsLoading] = useState(false)
+  const [characters, setCharacters] = useState([])
+
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
     const getCharacters = async () => {
-      const characters = await getData(url);
-      console.log(characters);
-      setNext(characters.next);
-      setPrevious(characters.previous);
-      setCharacters(characters.results);
-      setIsLoading(false);
-    };
-    getCharacters();
-  }, [url]);
+      const characters = await getData(url)
+      console.log(characters)
+      setNext(characters.next)
+      setPrevious(characters.previous)
+      setCharacters(characters.results)
+      setIsLoading(false)
+    }
+    getCharacters()
+  }, [url])
 
   const goToNext = e => {
-    e.preventDefault();
-    setUrl(next);
-  };
+    e.preventDefault()
+    setUrl(next)
+  }
 
   const goToPrevious = e => {
-    e.preventDefault();
-    setUrl(previous);
-  };
+    e.preventDefault()
+    setUrl(previous)
+  }
 
   return (
     <div>
@@ -59,5 +60,5 @@ export default function StarWarsCharacters() {
         </button>
       </div>
     </div>
-  );
+  )
 }
