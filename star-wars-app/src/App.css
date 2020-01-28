@@ -12,3 +12,21 @@
   align-items: center;
   justify-content: center;
 }
+
+.btn-secondary {
+  background-color: #ffc500 !important;
+}
+
+.dropdown-menu {
+  background-color: black !important;
+}
+
+.dropdown-item {
+  color: white !important;
+}
+
+.dropdown-item:hover {
+  font-weight: bolder !important;
+  background-color: #ffc500 !important;
+  color: black !important;
+}
